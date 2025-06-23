@@ -10,7 +10,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ../volumes/postgres_data:/var/lib/postgresql/data
+      - ./volumes/postgres_data:/var/lib/postgresql/data
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -22,6 +22,9 @@ services:
       - .env
     depends_on:
       - postgres
+    volumes:
+      - ./volumes/pgadmin_data:/var/lib/pgadmin
 
 volumes:
   postgres_data:
+  pgadmin_data:
